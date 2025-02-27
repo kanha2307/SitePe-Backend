@@ -50,7 +50,7 @@ export const confirmOrder = async (req, res) => {
     try{
         const { orderId } = req.params
         const { userId } = req.user
-        const { deliveryPartnerLocation} = req.body
+        const { deliveryPartnerLocation } = req.body
         console.log("user location",deliveryPartnerLocation)
         const deliveryPerson = await DeliveryPartner.findById(userId)
         if(!deliveryPerson){

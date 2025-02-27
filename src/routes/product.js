@@ -1,6 +1,6 @@
 import fastify from "fastify"
 import { getAllCategories } from "../controllers/product/category.js"
-import { getProductsByCategoryId } from "../controllers/product/product.js"
+import { getProductBySearch, getProductsByCategoryId } from "../controllers/product/product.js"
 
 
 export const categoryRoutes = async(fastify, options) =>{
@@ -9,4 +9,5 @@ export const categoryRoutes = async(fastify, options) =>{
 
 export const  productRoutes = async(fastify, options) => {
     fastify.get("/products/:categoryId", getProductsByCategoryId)
+    fastify.get("/products/search", getProductBySearch)
 }
