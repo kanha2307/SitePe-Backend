@@ -1,4 +1,3 @@
-import fastify from "fastify"
 import { getAllCategories } from "../controllers/product/category.js"
 import { getProductBySearch, getProductsByCategoryId } from "../controllers/product/product.js"
 

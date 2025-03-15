@@ -1,4 +1,5 @@
 import 'dotenv/config'
+
 import Fastify from 'fastify'
 import { connectDB } from "./src/config/connect.js"
 import { PORT } from './src/config/config.js'

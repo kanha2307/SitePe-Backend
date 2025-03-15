@@ -1,5 +1,15 @@
 import mongoose, { Schema }  from "mongoose";
 
+
+const addressSchema = new Schema({
+    _id: { type: mongoose.Schema.Types.ObjectId, auto: true },
+    latitude: { type: String, required: true },
+    longitude: { type: String, required: true },
+    address: { type: String, required: true },
+    landmark: { type: String },
+    type: { type: String, enum: ["Home", "Work", "Other"],default:"Home", required: true } // Define types
+  });
+  
 //Customer Schema
 const customerSchema = new Schema({
     name: {type: String},
@@ -10,12 +20,13 @@ const customerSchema = new Schema({
     },
     isActivated: {type: Boolean, default: false},
     phone: {type: Number, required: true, unique: true},
-    role: {type: String, enum: ["Customer"], default: "Customer"}, 
+    role: {type: String, enum: ["Customer"], default: "Customer"},
     liveLocation:{
         latitude: {type: String},
         longitude: {type: String}
     },
-    address: {type: String}
+    addresses: [addressSchema]
+
 })
 
 //Delivery Partner Schema
